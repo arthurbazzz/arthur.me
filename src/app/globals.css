@@ -3,6 +3,9 @@
 @theme {
   --color-bg-1: #0b0f14;
   --color-bg-2: #131a22;
+  --color-bg-spot-1: #16222f;
+  --color-bg-spot-2: #1c1430;
+  --color-bg-bottom: #0a0d12;
   --color-glass: rgba(15, 20, 27, 0.86);
   --color-border-subtle: rgba(255, 255, 255, 0.08);
   --color-text-main: #d7dee6;
@@ -15,6 +18,21 @@
   --color-ok: #28c840;
 }
 
+.theme-light {
+  --color-bg-1: #f8fafc;
+  --color-bg-2: #e2e8f0;
+  --color-bg-spot-1: #e0e7ff;
+  --color-bg-spot-2: #fce7f3;
+  --color-bg-bottom: #cbd5e1;
+  --color-glass: rgba(255, 255, 255, 0.85);
+  --color-border-subtle: rgba(0, 0, 0, 0.12);
+  --color-text-main: #1e293b;
+  --color-dim: #475569;
+  --color-accent-1: #0d9488;
+  --color-accent-2: #db2777;
+  --color-accent-3: #ca8a04;
+}
+
 html, body {
   height: 100%;
 }
@@ -24,11 +42,12 @@ body {
   font-family: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
   color: var(--color-text-main);
   background:
-    radial-gradient(1200px 700px at 15% 10%, #16222f 0%, transparent 55%),
-    radial-gradient(1000px 800px at 85% 90%, #1c1430 0%, transparent 55%),
-    linear-gradient(160deg, var(--color-bg-1), var(--color-bg-2) 60%, #0a0d12);
+    radial-gradient(1200px 700px at 15% 10%, var(--color-bg-spot-1) 0%, transparent 55%),
+    radial-gradient(1000px 800px at 85% 90%, var(--color-bg-spot-2) 0%, transparent 55%),
+    linear-gradient(160deg, var(--color-bg-1), var(--color-bg-2) 60%, var(--color-bg-bottom));
   overflow: hidden;
   position: relative;
+  transition: background 0.4s ease, color 0.4s ease;
 }
 
 /* Custom scrollbar for terminal */
@@ -36,7 +55,7 @@ body {
   width: 9px;
 }
 .term-body::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: var(--color-border-subtle);
   border-radius: 6px;
 }
 

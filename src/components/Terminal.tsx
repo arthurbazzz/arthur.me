@@ -85,14 +85,14 @@ const COMMANDS: Record<string, CommandHandler> = {
   "help": () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
       </div>
     )
   }),
   "ajuda": () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
       </div>
     )
   }),
@@ -269,6 +269,27 @@ const COMMANDS: Record<string, CommandHandler> = {
       )
     };
   },
+  "tema": (raw) => {
+    const parts = raw.split(/\s+/);
+    const mode = parts[1];
+    
+    if (mode === "branco" || mode === "claro" || mode === "light") {
+      document.body.classList.add("theme-light");
+      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div> };
+    } else if (mode === "preto" || mode === "escuro" || mode === "dark") {
+      document.body.classList.remove("theme-light");
+      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div> };
+    }
+    
+    const isLight = document.body.classList.contains("theme-light");
+    if (isLight) {
+      document.body.classList.remove("theme-light");
+      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div> };
+    } else {
+      document.body.classList.add("theme-light");
+      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div> };
+    }
+  },
   formacao: () => ({
     node: (
       <>
@@ -350,6 +371,7 @@ export default function Terminal() {
         <b className="text-accent-1">experiencias</b>,{" "}
         <b className="text-accent-1">formacao</b>,{" "}
         <b className="text-accent-1">posts</b>,{" "}
+        <b className="text-accent-1">tema</b>,{" "}
         <b className="text-accent-1">contato</b>,{" "}
         <b className="text-accent-1">neofetch</b>,{" "}
         <b className="text-accent-1">clear</b>
