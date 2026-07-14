@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import HalftoneArt from "./HalftoneArt";
 import HalftoneBrasao from "./HalftoneBrasao";
+import HalftoneDti from "./HalftoneDti";
 
 const renderFetch = (key: number | string) => (
   <div key={key} className="flex flex-wrap gap-7">
@@ -28,9 +29,11 @@ const renderFetch = (key: number | string) => (
         </dt>
         <dd className="m-0 text-text-main">Construindo coisas desde sempre</dd>
         <dt className="whitespace-nowrap font-semibold text-accent-2">
-          Shell:
+          Languages:
         </dt>
-        <dd className="m-0 text-text-main">PHP 8 / TypeScript</dd>
+        <dd className="m-0 text-text-main">
+          PHP | Java | Javascript | TypeScript
+        </dd>
         <dt className="whitespace-nowrap font-semibold text-accent-2">
           Backend:
         </dt>
@@ -41,20 +44,14 @@ const renderFetch = (key: number | string) => (
         <dd className="m-0 text-text-main">
           Next.js | React | Tailwind | Bootstrap
         </dd>
-        <dt className="whitespace-nowrap font-semibold text-accent-2">
-          SGDB:
-        </dt>
-        <dd className="m-0 text-text-main">
-          Mysql | SQLServer | Postgres
-        </dd>
+        <dt className="whitespace-nowrap font-semibold text-accent-2">SGDB:</dt>
+        <dd className="m-0 text-text-main">Mysql | SQLServer | PostgreSQL</dd>
         <dt className="whitespace-nowrap font-semibold text-accent-2">
           Infrastructure:
         </dt>
         <dd className="m-0 text-text-main">Docker</dd>
-        <dt className="whitespace-nowrap font-semibold text-accent-2">
-          Terminal:
-        </dt>
-        <dd className="m-0 text-text-main">VS Code | InteliJ</dd>
+        <dt className="whitespace-nowrap font-semibold text-accent-2">IDEs:</dt>
+        <dd className="m-0 text-text-main">VS Code | IntelliJ</dd>
       </dl>
       <div className="mt-3 flex gap-1.5">
         <span className="inline-block h-4 w-[22px] rounded-[3px] bg-[#ff2d20]"></span>
@@ -82,19 +79,37 @@ const COMMANDS: Record<string, CommandHandler> = {
       </div>
     ),
   }),
-  "help": () => ({
+  help: () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>,{" "}
+        <b className="text-accent-1">stack</b>,{" "}
+        <b className="text-accent-1">projetos</b>,{" "}
+        <b className="text-accent-1">experiencias</b>,{" "}
+        <b className="text-accent-1">formacao</b>,{" "}
+        <b className="text-accent-1">posts</b>,{" "}
+        <b className="text-accent-1">tema</b>,{" "}
+        <b className="text-accent-1">contato</b>,{" "}
+        <b className="text-accent-1">neofetch</b>,{" "}
+        <b className="text-accent-1">clear</b>
       </div>
-    )
+    ),
   }),
-  "ajuda": () => ({
+  ajuda: () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>,{" "}
+        <b className="text-accent-1">stack</b>,{" "}
+        <b className="text-accent-1">projetos</b>,{" "}
+        <b className="text-accent-1">experiencias</b>,{" "}
+        <b className="text-accent-1">formacao</b>,{" "}
+        <b className="text-accent-1">posts</b>,{" "}
+        <b className="text-accent-1">tema</b>,{" "}
+        <b className="text-accent-1">contato</b>,{" "}
+        <b className="text-accent-1">neofetch</b>,{" "}
+        <b className="text-accent-1">clear</b>
       </div>
-    )
+    ),
   }),
   sobre: () => ({
     node: (
@@ -102,7 +117,7 @@ const COMMANDS: Record<string, CommandHandler> = {
         Desenvolvedor full-stack em Belo Horizonte, MG. Trabalho principalmente
         com
         <b className="text-accent-1"> Laravel</b>,{" "}
-        <b className="text-accent-1">Filament v5</b> e
+        <b className="text-accent-1">Filament</b> e
         <b className="text-accent-1"> Next.js</b>, construindo sistemas para o
         setor público e produtos próprios. Também curso Ciência da Computação na
         FUMEC.
@@ -113,17 +128,23 @@ const COMMANDS: Record<string, CommandHandler> = {
     node: (
       <ul className="m-0 mt-2 pl-[18px]">
         <li className="mb-1.5">
-          <b className="text-accent-3">Backend:</b> Laravel, Filament v5, PHP 8
+          <b className="text-accent-3">Backend:</b> PHP, Laravel
         </li>
         <li className="mb-1.5">
           <b className="text-accent-3">Frontend:</b> Next.js, React, TypeScript
         </li>
         <li className="mb-1.5">
-          <b className="text-accent-3">Dados:</b> MySQL, Redis, RabbitMQ
+          <b className="text-accent-3">SGDB:</b> MySQL, SQLServer, PostgreSQL
         </li>
         <li className="mb-1.5">
-          <b className="text-accent-3">Infra:</b> Docker, Portainer, MinIO, VPS
-          self-hosted
+          <b className="text-accent-3">Infrastructure:</b> Docker, Portainer,
+        </li>
+        <li className="mb-1.5">
+          <b className="text-accent-3">Observability & Monitoring:</b> NewRelic,
+          Synk
+        </li>
+        <li className="mb-1.5">
+          <b className="text-accent-3">Os:</b> MacOS, Omarchy, Win11
         </li>
       </ul>
     ),
@@ -131,163 +152,122 @@ const COMMANDS: Record<string, CommandHandler> = {
   projetos: () => ({
     node: (
       <ul className="m-0 mt-2 pl-[18px]">
-        <li className="mb-1.5">
-          <b className="text-accent-3">Plataforma de presentes digitais</b> —
-          backend Laravel com máquina de estados, revelação por PIN/raspadinha,
-          webhooks de pagamento e Pix via AbacatePay.
-        </li>
-        <li className="mb-1.5">
-          <b className="text-accent-3">Integrações BHTRANS</b> — apps de
-          consulta de ônibus em tempo real para Belo Horizonte.
-        </li>
       </ul>
     ),
   }),
   experiencias: () => ({
     node: (
-      <div className="flex flex-wrap gap-7 mt-3.5">
-        <div className="flex-none">
-          <HalftoneBrasao />
+      <div className="mt-3.5 space-y-6">
+        {/* Secretaria de Estado - Atual */}
+        <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+          <div className="flex-none w-16 sm:w-20 shrink-0 flex justify-center">
+            <HalftoneBrasao />
+          </div>
+          <div className="flex-1">
+            <b className="text-accent-3">
+              Secretaria de Estado de Desenvolvimento Econômico de Minas Gerais
+            </b>
+            <br />
+            <span className="text-dim text-sm">
+              Desenvolvedor Full-Stack • Dezembro 2025 - (Atual)
+            </span>
+            <p className="mt-1 text-dim text-sm">
+              Desenvolvimento de sistemas internos usando Laravel, Filament e Next.js.
+            </p>
+          </div>
         </div>
-        <div className="flex-1 min-w-[240px]">
-          <ul className="m-0 pl-[18px]">
-            <li className="mb-2.5">
-              <b className="text-accent-3">
-                SEDE-MG (Secretaria de Estado de Desenvolvimento Econômico de
-                Minas Gerais)
-              </b>
-              <br />
-              <span className="text-dim">Desenvolvedor Full-Stack (Atual)</span>
-              <p className="mt-1 text-dim">
-                Desenvolvimento de sistemas internos usando Laravel, Filament e
-                Next.js, incluindo o SEI Gestor.
-              </p>
-            </li>
-            <li className="mb-2.5">
-              <b className="text-accent-3">Freelancer / Projetos Próprios</b>
-              <br />
-              <span className="text-dim">Desenvolvedor Full-Stack</span>
-              <p className="mt-1 text-dim">
-                Criação de plataformas de presentes, portais de notícias e
-                integrações de mobilidade urbana (BHTRANS).
-              </p>
-            </li>
-          </ul>
+
+        {/* DTI Digital */}
+        <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+          <div className="flex-none w-16 sm:w-20 shrink-0 flex justify-center">
+            <HalftoneDti />
+          </div>
+          <div className="flex-1">
+            <b className="text-accent-3">
+              DTI Digital
+            </b>
+            <br />
+            <span className="text-dim text-sm">
+              Estagiário de DevOps • Setembro 2025 - Dezembro 2025
+            </span>
+          </div>
+        </div>
+
+        {/* Secretaria de Estado - Estagio */}
+        <div className="flex flex-col sm:flex-row gap-5 items-start sm:items-center">
+          <div className="flex-none w-16 sm:w-20 shrink-0 flex justify-center">
+            <HalftoneBrasao />
+          </div>
+          <div className="flex-1">
+            <b className="text-accent-3">
+              Secretaria de Estado de Desenvolvimento Econômico de Minas Gerais
+            </b>
+            <br />
+            <span className="text-dim text-sm">
+              Estagiário de TI • Março 2025 - Setembro 2025
+            </span>
+          </div>
         </div>
       </div>
     ),
   }),
-  "posts": () => ({
+  posts: () => ({
     node: (
       <div className="mt-3.5 space-y-4">
-        <p className="text-dim">Aqui estão os meus posts recentes. Digite <b className="text-accent-1">post &lt;id&gt;</b> para ler completo.</p>
-        
+        <p className="text-dim">
+          Aqui estão os meus posts recentes. Digite{" "}
+          <b className="text-accent-1">post &lt;id&gt;</b> para ler completo.
+        </p>
+
         <div className="border border-border-subtle bg-white/5 rounded-md p-4 w-full">
           <div className="flex justify-between items-center mb-2">
-            <h3 className="m-0 text-[14px] font-bold text-accent-1">#1 - Bem-vindo ao meu Blog via Terminal</h3>
+            <h3 className="m-0 text-[14px] font-bold text-accent-1">
+              Sem posts ainda
+            </h3>
             <span className="text-dim text-[11px]">13 Jul 2026</span>
           </div>
           <p className="text-text-main text-[13px] leading-relaxed m-0">
-            E aí, pessoal! Acabei de adicionar um sistema de posts ao meu portfólio...
-          </p>
-        </div>
-
-        <div className="border border-border-subtle bg-white/5 rounded-md p-4 w-full">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="m-0 text-[14px] font-bold text-accent-1">#2 - O Desafio de Aprender Rust</h3>
-            <span className="text-dim text-[11px]">10 Jul 2026</span>
-          </div>
-          <p className="text-text-main text-[13px] leading-relaxed m-0">
-            Recentemente decidi mergulhar de cabeça no ecossistema de Rust. A curva de aprendizado inicial é bem íngreme...
+            No content.
           </p>
         </div>
       </div>
-    )
+    ),
   }),
-  "post": (raw) => {
-    const parts = raw.split(/\s+/);
-    const id = parts[1];
-
-    if (id === "1") {
-      return {
-        node: (
-          <div className="mt-3.5 border border-border-subtle bg-white/5 rounded-md p-4 w-full">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="m-0 text-[16px] font-bold text-accent-1">Bem-vindo ao meu Blog via Terminal</h3>
-              <span className="text-dim text-[11px]">13 de Julho de 2026</span>
-            </div>
-            <p className="text-text-main leading-relaxed mb-3">
-              E aí, pessoal! Acabei de adicionar um sistema de posts ao meu portfólio. 
-              A ideia é compartilhar um pouco sobre meus projetos, estudos em Ciência da Computação na FUMEC e os desafios do dia a dia como desenvolvedor Full-Stack.
-              O mais legal é que suporta anexos de imagens perfeitamente integrados ao estilo do terminal:
-            </p>
-            <div className="rounded overflow-hidden border border-border-subtle bg-black/20 my-4 inline-block w-full text-center">
-               <img src="/next.svg" alt="Exemplo de anexo" className="max-w-full h-auto p-4 invert opacity-80 mx-auto" style={{ maxHeight: '300px' }} />
-            </div>
-            <p className="mt-4 text-text-main leading-relaxed mb-3">
-              Fiquem ligados para mais novidades! Vou usar este espaço para detalhar alguns componentes técnicos dos meus projetos recentes e dicas de carreira.
-            </p>
-            <p className="mt-3 text-dim text-[12px]">
-              Tags: <span className="text-accent-3">#dev</span> <span className="text-accent-3">#portfolio</span> <span className="text-accent-3">#nextjs</span>
-            </p>
-          </div>
-        )
-      };
-    } else if (id === "2") {
-      return {
-        node: (
-          <div className="mt-3.5 border border-border-subtle bg-white/5 rounded-md p-4 w-full">
-            <div className="flex justify-between items-center mb-3">
-              <h3 className="m-0 text-[16px] font-bold text-accent-1">O Desafio de Aprender Rust</h3>
-              <span className="text-dim text-[11px]">10 de Julho de 2026</span>
-            </div>
-            <p className="text-text-main leading-relaxed mb-3">
-              Recentemente decidi mergulhar de cabeça no ecossistema de Rust. A curva de aprendizado inicial é bem íngreme, principalmente por causa do bendito Borrow Checker.
-            </p>
-            <p className="text-text-main leading-relaxed mb-3">
-              Apesar de ser um dev Full-Stack com foco forte em PHP (Laravel) e TypeScript, aprender uma linguagem de sistemas me ajudou a entender melhor como a memória funciona por baixo dos panos, o que tem feito com que eu escreva códigos muito mais eficientes nas minhas linguagens do dia a dia.
-            </p>
-            <div className="rounded overflow-hidden border border-border-subtle bg-black/20 my-4 inline-block w-full text-center">
-               <img src="/brasao_de_minas_gerais.png" alt="Rust lang" className="max-w-full h-auto p-4 opacity-80 mx-auto" style={{ maxHeight: '400px' }} />
-            </div>
-            <p className="text-text-main leading-relaxed mb-3">
-              Minha dica para quem está começando: não brigue com o compilador. Leia as mensagens de erro, elas são incrivelmente amigáveis (em 90% das vezes). 🦀
-            </p>
-            <p className="mt-3 text-dim text-[12px]">
-              Tags: <span className="text-accent-3">#rust</span> <span className="text-accent-3">#backend</span> <span className="text-accent-3">#aprendizado</span>
-            </p>
-          </div>
-        )
-      };
-    }
-
-    return {
-      node: (
-        <div className="mt-1.5 text-dim">
-          Post <b className="text-accent-1">{id || "inválido"}</b> não encontrado. Digite <b className="text-accent-1">posts</b> para ver a lista.
-        </div>
-      )
-    };
-  },
-  "tema": (raw) => {
+  tema: (raw) => {
     const parts = raw.split(/\s+/);
     const mode = parts[1];
-    
+
     if (mode === "branco" || mode === "claro" || mode === "light") {
       document.body.classList.add("theme-light");
-      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div> };
+      return {
+        node: (
+          <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div>
+        ),
+      };
     } else if (mode === "preto" || mode === "escuro" || mode === "dark") {
       document.body.classList.remove("theme-light");
-      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div> };
+      return {
+        node: (
+          <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div>
+        ),
+      };
     }
-    
+
     const isLight = document.body.classList.contains("theme-light");
     if (isLight) {
       document.body.classList.remove("theme-light");
-      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div> };
+      return {
+        node: (
+          <div className="mt-1.5 text-accent-1">Tema alterado para escuro.</div>
+        ),
+      };
     } else {
       document.body.classList.add("theme-light");
-      return { node: <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div> };
+      return {
+        node: (
+          <div className="mt-1.5 text-accent-1">Tema alterado para claro.</div>
+        ),
+      };
     }
   },
   formacao: () => ({
@@ -295,6 +275,12 @@ const COMMANDS: Record<string, CommandHandler> = {
       <>
         <p className="m-0 mt-2">
           Ciência da Computação — Universidade FUMEC (FACE) 2024 - 2027
+        </p>
+        <p>
+          {" "}
+          Matérias Importantes: Estrutura de dados, Análise de Algoritmos,
+          Programação Orientada a Objetos, Desenvolvimento Web Backend,
+          Desenvolvimento Web Frontend
         </p>
         <p className="m-0 mt-2">
           Técnico em Desenvolvimento de Sistemas - SENAI Horto 2021-2023
@@ -341,20 +327,6 @@ const COMMANDS: Record<string, CommandHandler> = {
     node: <div className="mt-3.5">{renderFetch(id + 1)}</div>,
   }),
   clear: () => ({ clear: true }),
-  experiencia: () => ({
-    node: (
-      <>
-        <p className="m-0 mt-2">
-          Desenvolvedor FullStack Júnior - Secretaria de Desenvolvimento
-          Econômico
-        </p>
-        <p className="m-0 mt-2">Estágiario Devops - DTI Digital</p>
-        <p className="m-0 mt-2">
-          Estágiario TI - Secretaria de Desenvolvimento Econômico
-        </p>
-      </>
-    ),
-  }),
 };
 
 export default function Terminal() {
