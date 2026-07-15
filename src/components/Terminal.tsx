@@ -79,37 +79,19 @@ const COMMANDS: Record<string, CommandHandler> = {
       </div>
     ),
   }),
-  help: () => ({
+  "help": () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>,{" "}
-        <b className="text-accent-1">stack</b>,{" "}
-        <b className="text-accent-1">projetos</b>,{" "}
-        <b className="text-accent-1">experiencias</b>,{" "}
-        <b className="text-accent-1">formacao</b>,{" "}
-        <b className="text-accent-1">posts</b>,{" "}
-        <b className="text-accent-1">tema</b>,{" "}
-        <b className="text-accent-1">contato</b>,{" "}
-        <b className="text-accent-1">neofetch</b>,{" "}
-        <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">curriculo</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
       </div>
-    ),
+    )
   }),
-  ajuda: () => ({
+  "ajuda": () => ({
     node: (
       <div className="mt-1.5 text-dim">
-        comandos: <b className="text-accent-1">sobre</b>,{" "}
-        <b className="text-accent-1">stack</b>,{" "}
-        <b className="text-accent-1">projetos</b>,{" "}
-        <b className="text-accent-1">experiencias</b>,{" "}
-        <b className="text-accent-1">formacao</b>,{" "}
-        <b className="text-accent-1">posts</b>,{" "}
-        <b className="text-accent-1">tema</b>,{" "}
-        <b className="text-accent-1">contato</b>,{" "}
-        <b className="text-accent-1">neofetch</b>,{" "}
-        <b className="text-accent-1">clear</b>
+        comandos: <b className="text-accent-1">sobre</b>, <b className="text-accent-1">stack</b>, <b className="text-accent-1">projetos</b>, <b className="text-accent-1">experiencias</b>, <b className="text-accent-1">formacao</b>, <b className="text-accent-1">posts</b>, <b className="text-accent-1">curriculo</b>, <b className="text-accent-1">tema</b>, <b className="text-accent-1">contato</b>, <b className="text-accent-1">neofetch</b>, <b className="text-accent-1">clear</b>
       </div>
-    ),
+    )
   }),
   sobre: () => ({
     node: (
@@ -153,6 +135,29 @@ const COMMANDS: Record<string, CommandHandler> = {
     node: (
       <ul className="m-0 mt-2 pl-[18px]">
       </ul>
+    ),
+  }),
+  curriculo: () => ({
+    node: (
+      <div className="mt-3.5 flex flex-col gap-3">
+        <p className="m-0 text-dim">
+          Baixe o meu currículo completo em PDF clicando no botão abaixo:
+        </p>
+        <div>
+          <a
+            href="/arthur_bazilio_curriculo.pdf"
+            download
+            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-semibold rounded bg-accent-1 text-[#0b0f14] hover:bg-white transition-colors duration-200 no-underline"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+              <polyline points="7 10 12 15 17 10" />
+              <line x1="12" y1="15" x2="12" y2="3" />
+            </svg>
+            Baixar Currículo
+          </a>
+        </div>
+      </div>
     ),
   }),
   experiencias: () => ({
@@ -343,6 +348,7 @@ export default function Terminal() {
         <b className="text-accent-1">experiencias</b>,{" "}
         <b className="text-accent-1">formacao</b>,{" "}
         <b className="text-accent-1">posts</b>,{" "}
+        <b className="text-accent-1">curriculo</b>,{" "}
         <b className="text-accent-1">tema</b>,{" "}
         <b className="text-accent-1">contato</b>,{" "}
         <b className="text-accent-1">neofetch</b>,{" "}
